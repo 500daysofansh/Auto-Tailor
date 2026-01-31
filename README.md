@@ -7,9 +7,9 @@
 > **Stop writing generic cover letters.** Let Python and AI write tailored, professional applications for you in seconds.
 
 ## 🚀 What is Auto-Tailor?
-Auto-Tailor is a CLI tool that completely automates the job application process. It reads your **Resume (PDF)** and a target **Job Description**, analyzes them using **Google's Gemini 1.5/Pro AI**, and generates a highly persuasive, professional cover letter.
+Auto-Tailor is a CLI tool that automates the job application process. It reads your **Resume (PDF)** and a target **Job Description**, analyzes them using **Google's Gemini AI**, and generates a highly persuasive, professional cover letter.
 
-It doesn't just fill in blanks—it studies your experience and explains *why* you are the perfect fit for the specific role.
+It doesn't just fill in blanks—it studies your experience and explains *why* you are the perfect fit for the specific role based on the job requirements.
 
 ## ✨ Key Features
 - **📄 Smart PDF Parsing:** Extracts text directly from your `resume.pdf`.
@@ -37,3 +37,34 @@ Clone the repository and install the required libraries:
 git clone [https://github.com/500daysofansh/Auto-Tailor.git](https://github.com/500daysofansh/Auto-Tailor.git)
 cd Auto-Tailor
 pip install -r requirements.txt
+3. Setup Your Secrets (.env)
+To keep your data safe, create a file named .env in the project folder and add your details. The script will pull your name and contact info from here to generate the PDF header.
+
+Paste this into your .env file:
+
+Ini, TOML
+# 1. Your Google AI Key
+GEMINI_API_KEY=Paste_Your_Key_Here
+
+# 2. Your Header Details (Replace these with your own info)
+MY_NAME=Your Full Name
+MY_CONTACT_1=City, State | +91-0000000000
+MY_CONTACT_2=email@example.com | [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+MY_GITHUB=[github.com/yourusername](https://github.com/yourusername)
+4. Prepare Input Files
+Resume: Place your resume.pdf in the main folder.
+
+Job Description: Copy the job post text into a file named job.txt.
+
+5. Run the Tool
+Bash
+python main.py
+6. Result
+The AI will analyze your files and print a preview in the terminal. ✅ A ready-to-send file named Cover_Letter.pdf will be generated in your folder.
+
+⚠️ Troubleshooting
+Error: 404 Model Not Found? The script is designed to handle this. It will auto-retry with different model names until one works.
+
+Git Error? Ensure you have a .gitignore file so you don't upload your .env keys.
+
+Created by Anshuman Singh
